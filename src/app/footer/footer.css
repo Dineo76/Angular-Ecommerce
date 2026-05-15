@@ -1,0 +1,9 @@
+.footer{
+    background-color: black;
+    color: white;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+}

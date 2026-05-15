@@ -1,0 +1,53 @@
+.hero {
+    background-image: url('https://images.pexels.com/photos/36594831/pexels-photo-36594831.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 1px;
+    width: 100%;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+.p1{
+    position: relative;
+    
+}
+
+
+
+.coffee {
+    background-color: white;
+    flex: 1 1 250px;
+    padding: 15px;
+    max-width: 350px;
+    border-radius: 8px;
+    border: 1px solid rgb(3, 3, 3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+.coffee:hover {
+    border-color: rgb(47, 47, 45);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    transform: translateY(-5px) scale(1.02);
+}
+
+img {
+    border-radius: 1px;
+}
+
