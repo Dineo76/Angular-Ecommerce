@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+  }
+
 body{
     margin: 0;
     padding: 0;
     background-color: #90785a;
-}
-h1{
-    color: white;
-    text-align: center;
-    font-style: italic;
+    overflow-x: hidden;
+
 }
