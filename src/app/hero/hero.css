@@ -9,6 +9,9 @@
     justify-content: center;
     color: white;
 }
+h1{
+    margin-left: 70px;
+}
 
 .menu-container {
     display: flex;
@@ -24,7 +27,7 @@ h2 {
     text-align: center;
 }
 .p1{
-    position: relative;
+   font-style: italic;
     
 }
 

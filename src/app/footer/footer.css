@@ -1,14 +1,12 @@
 .footer {
     background-color: black;
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
+    text-align: center;
+    padding: 3px;
   }
   
-  .contact {
+  /* .contact {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+  } */
