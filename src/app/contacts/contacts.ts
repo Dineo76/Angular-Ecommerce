@@ -3,10 +3,10 @@ import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-contacts',
   standalone: true,
   imports: [],
-  templateUrl: './hero.html',
-  styleUrl: './hero.css',
+  templateUrl: './contacts.html',
+  styleUrl: './contacts.css',
 })
-export class Hero {}
+export class Contacts {}

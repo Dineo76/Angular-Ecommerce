@@ -1,18 +1,3 @@
-.hero {
-    background-image: url('https://images.pexels.com/photos/36594831/pexels-photo-36594831.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-h1{
-    margin-left: 70px;
-}
-
 .menu-container {
     display: flex;
     flex-wrap: wrap;
@@ -21,17 +6,6 @@ h1{
     padding: 1px;
     width: 100%;
 }
-
-h2 {
-    color: white;
-    text-align: center;
-}
-.p1{
-   font-style: italic;
-    
-}
-
-
 
 .coffee {
     background-color: rgb(255, 255, 255);
@@ -49,5 +23,7 @@ h2 {
     box-shadow: 0 0 20px rgba(34, 33, 31, 0.6);
     transform: translateY(-5px) scale(1.02);
 }
-
-
+h2 {
+    color: white;
+    text-align: center;
+}

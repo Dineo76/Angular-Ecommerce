@@ -3,10 +3,10 @@ import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-about-us',
   standalone: true,
   imports: [],
-  templateUrl: './hero.html',
-  styleUrl: './hero.css',
+  templateUrl: './about-us.html',
+  styleUrl: './about-us.css',
 })
-export class Hero {}
+export class AboutUs {}
