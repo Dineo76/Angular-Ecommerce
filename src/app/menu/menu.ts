@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Injectable} from '@angular/core';
+import { Products } from '../products/products';
 
 @Component({
   selector: 'app-menu',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
   templateUrl: './menu.html',
   styleUrl: './menu.css',
 })
-export class Menu {}
+export class Menu {
+products = inject(Products);
+
+productlist= this.products.getproducts();
+}
