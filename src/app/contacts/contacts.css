@@ -8,7 +8,7 @@
 
 .contact-hero {
     height: 50vh;
-    background-image: url('https://media.istockphoto.com/id/1127965714/photo/contact-us-coffee-office-desk-table-support-corporate-service-information.jpg?b=1&s=612x612&w=0&k=20&c=4YO2mZ2mDoU_WRaWNQh5VORgB9fQyTJVP5QHG6MzuN0=');
+    background-image: url('https://images.pexels.com/photos/8250811/pexels-photo-8250811.jpeg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -120,35 +120,4 @@ button:hover {
     background-color: black;
 }
 
-/* MAP SECTION */
 
-.map-section {
-    padding: 50px 10%;
-    background-color: rgb(248, 244, 240);
-}
-
-.map-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: rgb(58, 33, 16);
-    font-size: 2rem;
-}
-
-.map-box {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-/* RESPONSIVE */
-
-@media(max-width: 768px) {
-
-    .contact-overlay h1 {
-        font-size: 2.5rem;
-    }
-
-    .contact-container {
-        flex-direction: column;
-    }
-
-}

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-imports: [RouterLink, RouterLinkActive]
-import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router'
+import { Cart } from '../services/cart';
+
 
 
 
@@ -11,4 +12,8 @@ import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
-export class Navbar {}
+export class Navbar {
+
+  cartService = inject(Cart);
+
+}

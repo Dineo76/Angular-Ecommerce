@@ -1,53 +1,149 @@
+
+
+
 .hero {
+
     background-image: url('https://images.pexels.com/photos/36594831/pexels-photo-36594831.jpeg');
+
     background-repeat: no-repeat;
+
     background-size: cover;
+
     background-position: center;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-h1{
-    margin-left: 70px;
-}
 
-.menu-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 1px;
-    width: 100%;
-}
+    height: 90vh;
 
-h2 {
-    color: white;
-    text-align: center;
-}
-.p1{
-   font-style: italic;
-    
-}
-
-
-
-.coffee {
-    background-color: rgb(255, 255, 255);
-    flex: 1 1 250px;
-    padding: 15px;
-    max-width: 350px;
-    border-radius: 8px;
-    border: 1px solid rgb(3, 3, 3);
-    transition: all 0.3s ease;
-    cursor: pointer;
     position: relative;
-}
-.coffee:hover {
-    border-color: rgb(47, 47, 45);
-    box-shadow: 0 0 20px rgba(34, 33, 31, 0.6);
-    transform: translateY(-5px) scale(1.02);
+
 }
 
+
+.overlay {
+
+    background: rgba(0, 0, 0, 0.55);
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 80px;
+
+}
+
+
+.hero-content {
+
+    color: white;
+
+    max-width: 600px;
+
+}
+
+
+.hero-content h1 {
+
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+    line-height: 1.1;
+
+}
+
+
+.hero-content p {
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+
+    color: rgb(230, 230, 230);
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+.hero-buttons button {
+
+    padding: 14px 30px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.hero-buttons button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+.secondary-btn {
+
+    background-color: transparent;
+
+    border: 1px solid white !important;
+
+    color: white;
+
+}
+
+
+@media (max-width: 768px) {
+
+    .overlay {
+
+        padding: 30px;
+
+        text-align: center;
+
+        justify-content: center;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 42px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 16px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+    }
+
+}
 

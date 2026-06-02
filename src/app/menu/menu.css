@@ -1,4 +1,4 @@
-.menu-container {
+/* .menu-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -27,3 +27,248 @@ h2 {
     color: white;
     text-align: center;
 }
+
+.wishlist-icon i {
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    color: #5d4037;
+
+    transition: 0.3s ease;
+
+}
+
+.wishlist-icon i:hover {
+
+    transform: scale(1.2);
+
+}
+
+.wishlist-icon i {
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    color: #5d4037;
+
+    transition: 0.3s ease;
+
+}
+
+.wishlist-icon i:hover {
+
+    transform: scale(1.2);
+
+} */
+
+
+.header {
+
+    text-align: center;
+
+    margin-top: 40px;
+
+    margin-bottom: 40px;
+
+    font-size: 40px;
+
+    color: rgb(44, 29, 18);
+
+}
+
+
+.menu-container {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    padding: 30px;
+
+}
+
+
+.coffee {
+
+    background-color: white;
+
+    width: 320px;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+
+    position: relative;
+
+}
+
+
+.coffee:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+}
+
+
+.coffee img {
+
+    width: 100%;
+
+    height: 280px;
+
+    object-fit: cover;
+
+}
+
+
+.wishlist-icon {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    background-color: white;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
+}
+
+
+.coffee h3 {
+
+    padding: 15px 20px 5px;
+
+    font-size: 24px;
+
+    color: rgb(44, 29, 18);
+
+}
+
+
+.coffee p {
+
+    padding: 0 20px;
+
+    color: gray;
+
+    line-height: 1.6;
+
+    font-size: 15px;
+
+}
+
+
+.country {
+
+    display: block;
+
+    padding: 10px 20px;
+
+    color: rgb(120, 120, 120);
+
+    font-style: italic;
+
+}
+
+
+.coffee h4 {
+
+    padding: 0 20px;
+
+    font-size: 22px;
+
+    color: rgb(88, 52, 32);
+
+}
+
+
+.cart-btn {
+
+    margin: 20px;
+
+    width: calc(100% - 40px);
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: rgb(59, 37, 25);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.cart-btn:hover {
+
+    background-color: rgb(92, 57, 38);
+
+}
+
+
+@media (max-width: 768px) {
+
+    .menu-container {
+
+        padding: 20px;
+
+    }
+
+
+    .coffee {
+
+        width: 100%;
+
+        max-width: 350px;
+
+    }
+
+
+    .header {
+
+        font-size: 32px;
+
+    }
+
+}
+
+
