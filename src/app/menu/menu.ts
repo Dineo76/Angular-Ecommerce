@@ -1,35 +1,20 @@
-import { Component, inject} from '@angular/core';
-import { Products } from '../products/products';
-import { Cart } from '../services/cart';
-import { Favorite } from '../service/favorite';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../service/product.service';
+import { Product } from '../products/product.model';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [],
   templateUrl: './menu.html',
-  styleUrl: './menu.css',
+  styleUrls: ['./menu.css']
 })
+export class Menu implements OnInit {
 
-export class Menu {
+  productlist: Product[] = [];
 
-  products = inject(Products);
+  constructor(private productService: ProductService) {}
 
-  cartService = inject(Cart);
-  favoriteService = inject(Favorite);
-
-  productlist = this.products.getproducts();
-
-  addCoffee(coffee: any) {
-
-    this.cartService.addToCart(coffee);
-  
+  ngOnInit(): void {
+    this.productlist = this.productService.getProducts();
   }
-  
-  toggleHeart() {
-
-    this.favoriteService.toggleHeart();
-
-  }
-
 }
