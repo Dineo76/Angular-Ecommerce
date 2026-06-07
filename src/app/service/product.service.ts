@@ -9,25 +9,33 @@ export class ProductService {
   private products: Product[] = [
     {
       id: 1,
-      name: 'Espresso',
+      name: 'Americano',
       price: 19,
       description: 'Strong rich coffee shot',
-      image: 'assets/espresso.jpg'
+      image: 'assets/images/americano.jpg'
     },
     {
       id: 2,
       name: 'Iced Latte',
       price: 25,
       description: 'Cold creamy latte',
-      image: 'assets/iced-latte.jpg'
+      image: 'assets/images/iced latte.jpg'
     },
     {
       id: 3,
       name: 'Cappuccino',
       price: 22,
       description: 'Smooth foam coffee',
-      image: 'assets/cappuccino.jpg'
+      image: 'assets/images/cappuccino.jpg',
+    },
+    {
+      id: 4,
+      name: 'Mocha',
+      price: 22,
+      description: 'Smooth foam coffee',
+      image: './assets/images/mocha.jpg'
     }
+
   ];
 
   getProducts(): Product[] {

@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router'
-import { Cart } from '../services/cart';
+import { CartService } from '../service/cart.service';
+import { FavoriteService } from '../service/favorite.service';
 
 
 
@@ -14,6 +15,7 @@ import { Cart } from '../services/cart';
 })
 export class Navbar {
 
-  cartService = inject(Cart);
+  cartService = inject(CartService);
+  favoriteService = inject(FavoriteService);
 
 }

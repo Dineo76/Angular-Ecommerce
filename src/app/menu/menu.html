@@ -11,9 +11,9 @@
                 <i
                   class="bi"
 
-                  [class.bi-heart]="!favoriteService.liked()"
+                  [class.bi-heart]="!isLiked()"
 
-                  [class.bi-heart-fill]="favoriteService.liked()"
+                  [class.bi-heart-fill]="isLiked()"
 
                   (click)="toggleHeart()"
                 ></i>
@@ -31,10 +31,6 @@
 
             <p>{{ coffee.description }}</p>
 
-            <span class="country">
-                {{ coffee.country }}
-            </span>
-
             <h4>{{ coffee.price }}</h4>
 
             <button
@@ -46,7 +42,7 @@
 
             <button
          class="cart-btn remove"
-         (click)="cartService.removeFromCart(coffee.id)"
+         (click)="removeCoffee(coffee.id)"
           >
           Remove
          </button>
