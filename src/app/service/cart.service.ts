@@ -5,23 +5,30 @@ import { Product } from '../products/product.model';
   providedIn: 'root'
 })
 export class CartService {
-cartCount() {
-throw new Error('Method not implemented.');
-}
 
   private cart: Product[] = [];
 
-  addToCart(product: Product) {
-    this.cart.push(product);
-    console.log('Cart:', this.cart);
-  }
-
-  removeFromCart(id: number) {
-    this.cart = this.cart.filter(item => item.id !== id);
-    console.log('Cart:', this.cart);
-  }
-
-  getCart() {
+  getCart(): Product[] {
     return this.cart;
+  }
+
+  addToCart(product: Product): void {
+    this.cart.push(product);
+  }
+
+  removeFromCart(productId: number): void {
+    this.cart = this.cart.filter(p => p.id !== productId);
+  }
+
+  clearCart(): void {
+    this.cart = [];
+  }
+
+  getTotal(): number {
+    return this.cart.reduce((sum, item) => sum + item.price, 0);
+  }
+
+  getCount(): number {
+    return this.cart.length;
   }
 }

@@ -18,4 +18,7 @@ export class Navbar {
   cartService = inject(CartService);
   favoriteService = inject(FavoriteService);
 
+  get cartCount() {
+    return this.cartService.getCount();
+  }
 }

@@ -19,7 +19,7 @@ export class ProductService {
       name: 'Iced Latte',
       price: 25,
       description: 'Cold creamy latte',
-      image: 'assets/images/iced latte.jpg'
+      image: 'assets/images/iced-latte.jpg'
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ export class ProductService {
       name: 'Mocha',
       price: 22,
       description: 'Smooth foam coffee',
-      image: './assets/images/mocha.jpg'
+      image: 'assets/images/mocha.jpg'
     }
 
   ];

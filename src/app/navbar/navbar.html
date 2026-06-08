@@ -52,13 +52,11 @@
     </li>
 
     <li class="cart">
-
+      <a routerLink="/cart" routerLinkActive="active">
         <i class="bi bi-cart-fill"></i>
-
-        Cart ({{ cartService.cartCount() }})
-
+        Cart ({{ cartService.getCount() }})
+      </a>
     </li>
-
 </ul>
 
 </nav>

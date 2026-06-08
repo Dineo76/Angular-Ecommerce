@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
 import { FavoriteService } from '../service/favorite.service';
@@ -30,6 +29,7 @@ export class Menu implements OnInit {
 
   addCoffee(coffee: Product) {
     this.cartService.addToCart(coffee);
+    console.log('ADDED:', coffee);
   }
 
   removeCoffee(id: number) {
