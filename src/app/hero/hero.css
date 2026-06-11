@@ -1,149 +1,398 @@
 
+/* =========================
+   GLOBAL COFFEE THEME COLORS
+========================= */
 
+:root {
+    --espresso: #2b1b12;
+    --coffee: #6f4e37;
+    --caramel: #8b5e3c;
+    --latte: #f3e9df;
+    --cream: #ffffff;
+    --text-dark: #2b1b12;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero {
-
-    background-image: url('https://images.pexels.com/photos/36594831/pexels-photo-36594831.jpeg');
-
+    background-image: url('/assets/images/hero-image.jpg');
     background-repeat: no-repeat;
-
     background-size: cover;
-
     background-position: center;
-
-    height: 90vh;
-
+    height: 80vh; /* reduced from 90vh */
     position: relative;
-
 }
-
-
-.overlay {
-
-    background: rgba(0, 0, 0, 0.55);
-
-    width: 100%;
-
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    padding-left: 80px;
-
-}
-
-
-.hero-content {
-
-    color: white;
-
-    max-width: 600px;
-
-}
-
-
-.hero-content h1 {
-
-    font-size: 70px;
-
-    margin-bottom: 20px;
-
-    line-height: 1.1;
-
-}
-
 
 .hero-content p {
-
-    font-size: 18px;
-
-    line-height: 1.7;
-
-    margin-bottom: 30px;
-
-    color: rgb(230, 230, 230);
-
+    color: rgba(255, 255, 255, 0.9);
 }
 
+.hero-content h1 {
+    color: white;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.55);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.hero-content {
+    color: white;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 70px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: rgb(230, 230, 230);
+}
 
 .hero-buttons {
-
     display: flex;
-
     gap: 20px;
+}
 
+.hero-buttons button {
+    background-color: var(--coffee);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.hero-buttons button:hover {
+    background-color: var(--caramel);
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    background-color: transparent !important;
+    border: 1px solid white !important;
+    color: white;
+}
+
+/* =========================
+   FEATURED SECTION
+========================= */
+
+.featured {
+    padding: 60px 40px;
+    text-align: center;
+    /* background-color: var(--latte); */
+    background-color: #f3e9df;
+    margin: 0;
+}
+
+.featured h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    /* color: var(--espresso); */
+    color: #ffffff;
+}
+
+.section-text {
+    color: white;
+    /* margin-bottom: 40px; */
+    margin-bottom: 25px;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+    width: 90%;
+    margin: 0 auto;
 }
 
 
-.hero-buttons button {
+.featured-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+    transition: 0.3s ease;
+    min-height: 460px; /* makes them bigger */
+    
+}
+.featured-card:hover {
+    transform: translateY(-8px);
+}
 
+
+.featured-card img {
+    width: 100%;
+    height: 220px; /* bigger image */
+    object-fit: cover;
+}
+
+.featured-card h3 {
+    margin: 15px 0 5px;
+    font-size: 20px;
+}
+
+.featured-card p {
+    padding: 0 15px 25px;
+    font-size: 15px;
+    color: #555;
+}
+
+
+.menu-btn {
+    margin-top: 30px;
     padding: 14px 30px;
-
     border: none;
-
-    border-radius: 6px;
-
+    background-color: white; /* espresso dark */
+    color:#2b1b12 ;
+    border-radius: 8px;
     cursor: pointer;
-
     font-size: 16px;
+    transition: 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    border-color: #050403;
+}
+
+
+.menu-btn:hover {
+    background-color: var(--caramel);
+    transform: translateY(-3px);
+ 
+}
+
+/* =========================
+   WHY US SECTION
+========================= */
+
+.why-us {
+    padding: 60px 40px;
+    margin: 0;
+    text-align: center;
+    /* background-color: var(--espresso); */
+    background-color: #2b1b12;
+    color: white;
+}
+
+.why-us h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    /* margin-bottom: 40px; */
+}
+
+.reasons {
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.reason-card {
+    background: #3a2418;
+
+    border-radius: 14px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
 
     transition: 0.3s ease;
 
+    min-height: 460px;
+
+    padding: 30px;
 }
 
+.reason-card:hover {
+    transform: translateY(-8px);
+}
 
-.hero-buttons button:hover {
+.reason-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
 
-    transform: translateY(-3px);
+.reason-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+}
+.reason-card ul {
+    text-align: left;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.reason-card li {
+    margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+
+    .reasons {
+        grid-template-columns: 1fr;
+    }
 
 }
 
+/* =========================
+   REVIEWS SECTION
+========================= */
 
-.secondary-btn {
+.reviews {
+    padding: 60px 40px;
+    margin: 0;
+    text-align: center;
+    /* background-color: var(--latte); */
+    background-color: #f3e9df;
+}
 
-    background-color: transparent;
+.reviews h2 {
+    font-size: 36px;
+    /* margin-bottom: 40px; */
+    margin-bottom: 10px;
+    /* color: var(--espresso); */
+    color: #ffffff;
+}
 
-    border: 1px solid white !important;
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
+.review-card {
+    /* background-color: var(--latte); */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.review-card .stars {
+    color: gold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   BUTTONS GLOBAL STYLE
+========================= */
+
+.hero-buttons button,
+.menu-btn {
+    background-color: var(--coffee);
     color: white;
-
+    border: none;
+    border-radius: 6px;
+    transition: 0.3s ease;
 }
 
+.hero-buttons button:hover,
+.menu-btn:hover {
+    background-color: var(--caramel);
+}
+
+.featured,
+.why-us,
+.reviews {
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 768px) {
 
     .overlay {
-
         padding: 30px;
-
         text-align: center;
-
         justify-content: center;
-
     }
-
 
     .hero-content h1 {
-
         font-size: 42px;
-
     }
-
 
     .hero-content p {
-
         font-size: 16px;
-
     }
-
 
     .hero-buttons {
-
         flex-direction: column;
-
     }
 
-}
+    /* Featured Coffees */
+    .featured-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 20px 20px;
+        scrollbar-width: none;
+    }
 
+    .featured-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .featured-card {
+        min-width: 300px;
+        max-width: 300px;
+        flex-shrink: 0;
+    }
+
+    /* Why Us */
+    .reasons {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 20px 20px;
+        scrollbar-width: none;
+    }
+
+    .reasons::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reason-card {
+        min-width: 300px;
+        max-width: 300px;
+        flex-shrink: 0;
+        min-height: auto;
+    }
+
+    /* Reviews */
+    .reviews-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 20px 20px;
+        scrollbar-width: none;
+    }
+
+    .reviews-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .review-card {
+        min-width: 300px;
+        max-width: 300px;
+        flex-shrink: 0;
+    }
+}
