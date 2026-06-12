@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ProductService } from '../service/product.service';
 import { CartService } from '../service/cart.service';
 import { FavoriteService } from '../service/favorite.service';
-
 import { Product } from '../products/product.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './menu.html',
   styleUrls: ['./menu.css']
 })

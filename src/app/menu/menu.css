@@ -271,4 +271,14 @@ h2 {
 
 }
 
+.coffee-content {
+    cursor: pointer;
+}
 
+.coffee-content:hover img {
+    transform: scale(1.03);
+}
+
+.coffee-content img {
+    transition: 0.3s ease;
+}

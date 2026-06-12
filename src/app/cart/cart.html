@@ -1,4 +1,4 @@
-<div class="cart-container">
+<!-- <div class="cart-container">
 
   <h2>Your Cart 🛒</h2>
 
@@ -28,6 +28,57 @@
   <h3>Total: R {{ total }}</h3>
 
   <button (click)="clearCart()">
+    Clear Cart
+  </button>
+
+</div> -->
+<div class="cart-container">
+
+  <h2>Your Cart 🛒</h2>
+
+  @if (cartItems.length === 0) {
+    <p>Your cart is empty.</p>
+  }
+
+  @for (item of cartItems; track item.product.id) {
+
+    <div class="cart-item">
+
+      <img [src]="item.product.image" width="100">
+
+      <div class="cart-details">
+
+        <h3>{{ item.product.name }}</h3>
+
+        <p>R {{ item.product.price }}</p>
+
+        <p>Subtotal: R {{ item.product.price * item.quantity }}</p>
+
+        <div class="qty-controls">
+
+          <button (click)="decrease(item.product.id)">-</button>
+
+          <span>{{ item.quantity }}</span>
+
+          <button (click)="increase(item.product.id)">+</button>
+
+        </div>
+
+      </div>
+
+      <button (click)="remove(item.product.id)">
+        Remove
+      </button>
+
+    </div>
+
+  }
+
+  <hr>
+
+  <h3>Total: R {{ total }}</h3>
+
+  <button (click)="clear()">
     Clear Cart
   </button>
 

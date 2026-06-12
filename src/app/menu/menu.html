@@ -10,28 +10,32 @@
 
                 <i
                   class="bi"
-
                   [class.bi-heart]="!isLiked()"
-
                   [class.bi-heart-fill]="isLiked()"
-
                   (click)="toggleHeart()"
                 ></i>
 
             </div>
 
-            <img
-              [src]="coffee.image"
-              [alt]="coffee.name"
-              width="310"
-              height="310"
+            <div
+                class="coffee-content"
+                [routerLink]="['/product', coffee.id]"
             >
 
-            <h3>{{ coffee.name }}</h3>
+                <img
+                  [src]="coffee.image"
+                  [alt]="coffee.name"
+                  width="310"
+                  height="310"
+                >
 
-            <p>{{ coffee.description }}</p>
+                <h3>{{ coffee.name }}</h3>
 
-            <h4>{{ coffee.price }}</h4>
+                <p>{{ coffee.description }}</p>
+
+                <h4>R {{ coffee.price }}</h4>
+
+            </div>
 
             <button
               class="cart-btn"
@@ -41,15 +45,14 @@
             </button>
 
             <button
-         class="cart-btn remove"
-         (click)="removeCoffee(coffee.id)"
-          >
-          Remove
-         </button>
+              class="cart-btn remove"
+              (click)="removeCoffee(coffee.id)"
+            >
+              Remove
+            </button>
 
         </div>
 
     }
 
 </div>
-

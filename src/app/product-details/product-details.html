@@ -1,0 +1,46 @@
+<!-- <div class="details-container" *ngIf="product">
+
+  <img [src]="product.image" [alt]="product.name">
+
+  <div class="details-content">
+
+      <h1>{{ product.name }}</h1>
+
+      <p>{{ product.description }}</p>
+
+      <h2>R {{ product.price }}</h2>
+
+      <button (click)="addToCart()">
+          Add To Cart
+      </button>
+
+  </div>
+
+</div> -->
+<div class="product-page" *ngIf="product">
+
+  <div class="product-image">
+
+      <img [src]="product.image" [alt]="product.name">
+
+  </div>
+
+  <div class="product-info">
+
+      <h1>{{ product.name }}</h1>
+
+      <p class="description">
+          {{ product.description }}
+      </p>
+
+      <h2 class="price">
+          R {{ product.price }}
+      </h2>
+
+      <button class="add-btn" (click)="addToCart()">
+          Add To Cart
+      </button>
+
+  </div>
+
+</div>
