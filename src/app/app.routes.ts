@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-
 import { Hero } from './hero/hero';
 import { AboutUs } from './about-us/about-us';
 import { Contacts } from './contacts/contacts';
 import { Menu } from './menu/menu';
 import { CartComponent } from './cart/cart';
+import { Checkout } from './checkout/checkout';
 
 export const routes: Routes = [
   { path: '', component: Hero },
@@ -19,5 +19,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./product-details/product-details')
         .then(m => m.ProductDetailsComponent)
-  }
+  },
+    { path: 'checkout', component: Checkout },
 ];
