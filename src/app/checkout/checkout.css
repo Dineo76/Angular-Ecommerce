@@ -22,7 +22,7 @@
     border-radius: 10px;
 }
 
-.place-order {
+.place-order button {
     width: 100%;
     padding: 15px;
     background-color: #3b2519;
@@ -37,4 +37,44 @@
 
 .place-order:hover {
     background-color: #241710;
+}
+/* form input */
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.checkout-form label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.place-order {
+    width: 100%;
+    padding: 14px;
+    background-color: #8B5E3C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.place-order:hover {
+    background-color: #6f482d;
 }

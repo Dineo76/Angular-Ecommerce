@@ -1,0 +1,21 @@
+<div class="success-container">
+
+    <div class="success-card">
+  
+      <h1>🎉 Order Successful!</h1>
+  
+      <p>Order ID: <b>#{{ order?.id }}</b></p>
+  
+      <p>Total Paid: R {{ order?.total }}</p>
+  
+      <p>Date: {{ order?.date | date:'medium' }}</p>
+  
+      <div class="success-icon">✔</div>
+  
+      <button routerLink="/menu">
+        Continue Shopping
+      </button>
+  
+    </div>
+  
+  </div>

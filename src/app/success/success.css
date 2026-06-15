@@ -1,0 +1,38 @@
+.success-container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-card {
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.success-card h1 {
+    color: #3b2519;
+}
+
+.success-icon {
+    font-size: 60px;
+    color: green;
+    margin: 20px 0;
+}
+
+.success-card button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #8B5E3C;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.success-card button:hover {
+    background-color: #6f482d;
+}

@@ -21,4 +21,11 @@ export const routes: Routes = [
         .then(m => m.ProductDetailsComponent)
   },
     { path: 'checkout', component: Checkout },
+
+    {
+      path: 'success',
+      loadComponent: () =>
+        import('./success/success')
+          .then(m => m.Success)
+    }
 ];

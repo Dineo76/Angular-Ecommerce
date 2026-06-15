@@ -41,8 +41,16 @@
 
   <hr>
 
- <h3>Total: R {{ total.toFixed(2) }}</h3>
-  <button (click)="clear()">
-    Clear Cart
-  </button>
-</div>
+  <h3>Total: R {{ total.toFixed(2) }}</h3>
+
+  <div class="cart-actions">
+  
+    <button (click)="clear()">
+      Clear Cart
+    </button>
+  
+    <button routerLink="/checkout" class="checkout-btn">
+      Proceed to Checkout
+    </button>
+  
+  </div>

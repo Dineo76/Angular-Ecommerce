@@ -98,4 +98,30 @@ export class CartService {
       0
     );
   }
+
+  private orders: any[] = JSON.parse(localStorage.getItem('orders') || '[]');
+
+private saveOrders() {
+  localStorage.setItem('orders', JSON.stringify(this.orders));
+}
+
+createOrder(customer: any, items: any[], total: number) {
+
+  const order = {
+    id: Date.now(), // simple order number
+    customer,
+    items,
+    total,
+    date: new Date()
+  };
+
+  this.orders.push(order);
+  this.saveOrders();
+
+  return order;
+}
+
+getOrders() {
+  return this.orders;
+}
 }
