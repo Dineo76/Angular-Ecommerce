@@ -1,0 +1,45 @@
+<div class="wishlist-container">
+
+  <h2>Your Wishlist ❤️</h2>
+
+  @if (favorites().length === 0) {
+    <p class="empty">No favourites yet ☕ Go add some coffee!</p>
+  }
+
+  @if (favorites().length > 0) {
+
+    <div class="wishlist-items">
+
+      @for (item of favorites(); track item.id) {
+
+        <div class="wishlist-card">
+
+          <img [src]="item.image" [alt]="item.name">
+
+          <div class="wishlist-details">
+
+            <h3>{{ item.name }}</h3>
+            <p>R {{ item.price }}</p>
+
+          </div>
+
+          <div class="wishlist-actions">
+
+            <button class="remove" (click)="remove(item.id)">
+              Remove
+            </button>
+
+            <button class="add-cart" (click)="addToCart(item)">
+              Add to Cart
+            </button>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+  }
+
+</div>

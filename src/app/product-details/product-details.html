@@ -1,45 +1,40 @@
-<!-- <div class="details-container" *ngIf="product">
-
-  <img [src]="product.image" [alt]="product.name">
-
-  <div class="details-content">
-
-      <h1>{{ product.name }}</h1>
-
-      <p>{{ product.description }}</p>
-
-      <h2>R {{ product.price }}</h2>
-
-      <button (click)="addToCart()">
-          Add To Cart
-      </button>
-
-  </div>
-
-</div> -->
 <div class="product-page" *ngIf="product">
 
   <div class="product-image">
-
-      <img [src]="product.image" [alt]="product.name">
-
+    <img [src]="product.image" [alt]="product.name">
   </div>
 
   <div class="product-info">
 
-      <h1>{{ product.name }}</h1>
+    <a routerLink="/menu" class="back-link">
+      ← Back to Menu
+    </a>
 
-      <p class="description">
-          {{ product.description }}
-      </p>
+    <h1>{{ product.name }}</h1>
 
-      <h2 class="price">
-          R {{ product.price }}
-      </h2>
+    <p class="description">
+      {{ product.description }}
+    </p>
+
+    <h2 class="price">
+      R {{ product.price }}
+    </h2>
+
+    <div class="product-actions">
 
       <button class="add-btn" (click)="addToCart()">
-          Add To Cart
+        Add To Cart
       </button>
+
+      <button class="wishlist-btn" (click)="toggleFavorite()">
+        {{ isFavorite() ? '❤️ Remove from Wishlist' : '♡ Add to Wishlist' }}
+      </button>
+
+    </div>
+
+    <p class="added-message" *ngIf="addedMessage">
+      Added to cart ✓
+    </p>
 
   </div>
 

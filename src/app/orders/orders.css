@@ -1,0 +1,81 @@
+.orders-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+
+    /* Layout */
+    background: #f7f3ef;
+    border-radius: 12px;
+
+    /* Better scrolling behavior */
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Scrollbar styling */
+.orders-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.orders-container::-webkit-scrollbar-thumb {
+    background: #8b5e3c;
+    border-radius: 10px;
+}
+
+.orders-container::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+/* Sticky header */
+.orders-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3b2519;
+
+    position: sticky;
+    top: 0;
+    background: #f7f3ef;
+    padding: 12px 0;
+    z-index: 10;
+    border-bottom: 1px solid #e5d7cc;
+}
+
+/* Order card */
+.order-card {
+    background: white;
+    padding: 18px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+
+    transition: 0.2s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-3px);
+}
+
+.order-card h3 {
+    margin-bottom: 8px;
+    color: #3b2519;
+}
+
+.order-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Items spacing improvement */
+.order-card .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+/* Optional total highlight */
+.order-total {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #3b2519;
+}

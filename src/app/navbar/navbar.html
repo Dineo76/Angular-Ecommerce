@@ -12,6 +12,34 @@
 
   </h1>
 
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  (input)="onLiveSearch()"
+  placeholder="Search..."
+/>
+
+<div class="search-results" *ngIf="searchTerm">
+
+  <div *ngIf="results.length > 0">
+
+    <div
+      class="result-item"
+      *ngFor="let item of results"
+      (click)="selectResult(item)"
+    >
+      {{ item.label }}
+    </div>
+
+  </div>
+
+  <div *ngIf="results.length === 0">
+    No results found
+  </div>
+
+
+</div>
+
   <ul class="list">
 
     <li>
@@ -51,12 +79,24 @@
         </a>
     </li>
 
-    <li class="cart">
-      <a routerLink="/cart" routerLinkActive="active">
-        <i class="bi bi-cart-fill"></i>
-        Cart ({{ cartService.getCount() }})
-      </a>
-    </li>
+   <li class="cart">
+  <a routerLink="/cart" routerLinkActive="active">
+    <i class="bi bi-cart-fill"></i>
+    Cart ({{ cartCount }})
+  </a>
+</li>
+
+<li class="wishlist">
+  <a routerLink="/wishlist" routerLinkActive="active">
+    <i class="bi bi-heart-fill"></i>
+    Wishlist ({{ wishlistCount }})
+  </a>
+</li>
+<li>
+  <a routerLink="/orders" routerLinkActive="active">
+    Orders
+  </a>
+</li>
 </ul>
 
 </nav>

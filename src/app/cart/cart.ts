@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../service/cart.service';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,12 +10,16 @@ import { RouterLink } from '@angular/router';
   templateUrl: './cart.html',
   styleUrls: ['./cart.css']
 })
-export class CartComponent {
+export class Cart {
 
-  cartService = inject(CartService);
+  constructor(public cartService: CartService) {}
 
   get cartItems() {
     return this.cartService.getCart();
+  }
+
+  get total(): number {
+    return this.cartService.getTotal();
   }
 
   increase(id: number) {
@@ -28,10 +32,6 @@ export class CartComponent {
 
   remove(id: number) {
     this.cartService.removeFromCart(id);
-  }
-
-  get total() {
-    return this.cartService.getTotal();
   }
 
   clear() {

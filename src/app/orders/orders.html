@@ -1,0 +1,43 @@
+<div class="orders-container">
+
+  <div class="orders-header">
+    <h2>🧾 My Orders</h2>
+
+    <a routerLink="/menu" class="shop-btn">
+      + New Order
+    </a>
+  </div>
+
+  @if (orders.length === 0) {
+    <p class="empty">No orders yet. Start by ordering your favourite coffee ☕</p>
+  }
+
+  @for (order of orders; track order.id) {
+
+    <div class="order-card">
+
+      <div class="order-top">
+        <h3>Order #{{ order.id }}</h3>
+        <span>{{ order.date | date:'medium' }}</span>
+      </div>
+
+      <p><strong>Name:</strong> {{ order.customer.name }}</p>
+
+      <div class="order-items">
+        @for (item of order.items; track item.product.id) {
+          <div class="item-row">
+            <span>{{ item.product.name }} x {{ item.quantity }}</span>
+            <span>R {{ item.product.price * item.quantity }}</span>
+          </div>
+        }
+      </div>
+
+      <div class="order-total">
+        Total: R {{ order.total }}
+      </div>
+
+    </div>
+
+  }
+
+</div>

@@ -6,16 +6,14 @@
 
         <div class="coffee">
 
-            <div class="wishlist-icon">
-
-                <i
-                  class="bi"
-                  [class.bi-heart]="!isLiked()"
-                  [class.bi-heart-fill]="isLiked()"
-                  (click)="toggleHeart()"
-                ></i>
-
-            </div>
+<div class="wishlist-icon">
+  <button
+    type="button"
+    (click)="favoriteService.toggleFavorite(coffee)"
+  >
+    {{ favoriteService.isFavorite(coffee.id) ? '❤️' : '♡' }}
+  </button>
+</div>
 
             <div
                 class="coffee-content"

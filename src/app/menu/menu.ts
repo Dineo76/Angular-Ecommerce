@@ -20,7 +20,9 @@ export class Menu implements OnInit {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private favoriteService: FavoriteService
+
+    // public = your menu.html can use it
+    public favoriteService: FavoriteService
   ) {}
 
   ngOnInit(): void {
@@ -35,12 +37,4 @@ export class Menu implements OnInit {
   removeCoffee(id: number) {
     this.cartService.removeFromCart(id);
   }
-
-  toggleHeart() {
-    this.favoriteService.toggle();
-  }
-
-  isLiked(): boolean {
-  return this.favoriteService.liked();
-}
 }

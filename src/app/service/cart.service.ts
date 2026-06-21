@@ -6,10 +6,20 @@ export interface CartItem {
   quantity: number;
 }
 
+export interface Order {
+  id: number;
+  customer: any;
+  items: CartItem[];
+  total: number;
+  date: Date;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+
+  /* ================= CART ================= */
 
   private cart: CartItem[] =
     JSON.parse(localStorage.getItem('cart') || '[]');
@@ -24,23 +34,20 @@ export class CartService {
 
   addToCart(product: Product): void {
 
-    const existing =
-      this.cart.find(item => item.product.id === product.id);
+    const existing = this.cart.find(
+      item => item.product.id === product.id
+    );
 
     if (existing) {
       existing.quantity += 1;
     } else {
-      this.cart.push({
-        product,
-        quantity: 1
-      });
+      this.cart.push({ product, quantity: 1 });
     }
 
     this.saveCart();
   }
 
   removeFromCart(productId: number): void {
-
     this.cart = this.cart.filter(
       item => item.product.id !== productId
     );
@@ -49,10 +56,7 @@ export class CartService {
   }
 
   increaseQty(productId: number): void {
-
-    const item = this.cart.find(
-      i => i.product.id === productId
-    );
+    const item = this.cart.find(i => i.product.id === productId);
 
     if (item) {
       item.quantity++;
@@ -61,10 +65,7 @@ export class CartService {
   }
 
   decreaseQty(productId: number): void {
-
-    const item = this.cart.find(
-      i => i.product.id === productId
-    );
+    const item = this.cart.find(i => i.product.id === productId);
 
     if (!item) return;
 
@@ -83,45 +84,49 @@ export class CartService {
   }
 
   getTotal(): number {
-
     return this.cart.reduce(
-      (sum, item) =>
-        sum + item.product.price * item.quantity,
+      (sum, item) => sum + item.product.price * item.quantity,
       0
     );
   }
 
   getCount(): number {
-
     return this.cart.reduce(
       (sum, item) => sum + item.quantity,
       0
     );
   }
 
-  private orders: any[] = JSON.parse(localStorage.getItem('orders') || '[]');
+  /* ================= ORDERS ================= */
 
-private saveOrders() {
-  localStorage.setItem('orders', JSON.stringify(this.orders));
-}
+  private ordersKey = 'coffeeOrders';
 
-createOrder(customer: any, items: any[], total: number) {
+  getOrders(): Order[] {
+    return JSON.parse(localStorage.getItem(this.ordersKey) || '[]');
+  }
 
-  const order = {
-    id: Date.now(), // simple order number
-    customer,
-    items,
-    total,
-    date: new Date()
-  };
+  saveOrder(order: Order): void {
+    const orders = this.getOrders();
+    orders.push(order);
 
-  this.orders.push(order);
-  this.saveOrders();
+    localStorage.setItem(
+      this.ordersKey,
+      JSON.stringify(orders)
+    );
+  }
 
-  return order;
-}
+  createOrder(customer: any, items: CartItem[], total: number): Order {
 
-getOrders() {
-  return this.orders;
-}
+    const order: Order = {
+      id: Date.now(),
+      customer,
+      items,
+      total,
+      date: new Date()
+    };
+
+    this.saveOrder(order);
+
+    return order;
+  }
 }
