@@ -33,7 +33,7 @@ export class ProductService {
       name: 'Mocha',
       price: 22,
       description: 'Smooth foam coffee',
-      image: 'assets/images/mocha.jpg'
+      image: 'assets/images/mocha2.jpg'
     }
 
   ];
