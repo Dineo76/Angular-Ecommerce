@@ -16,6 +16,7 @@ import { RouterLink } from '@angular/router';
 export class Menu implements OnInit {
 
   productlist: Product[] = [];
+  selectedCategory = 'All';
 
   constructor(
     private productService: ProductService,
@@ -28,6 +29,19 @@ export class Menu implements OnInit {
   ngOnInit(): void {
     this.productlist = this.productService.getProducts();
   }
+  filterCategory(category: string) {
+
+  this.selectedCategory = category;
+
+  if (category === 'All') {
+    this.productlist = this.productService.getProducts();
+  } else {
+    this.productlist = this.productService
+      .getProducts()
+      .filter(product => product.category === category);
+  }
+
+}
 
   addCoffee(coffee: Product) {
     this.cartService.addToCart(coffee);

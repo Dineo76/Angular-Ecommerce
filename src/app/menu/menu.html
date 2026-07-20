@@ -7,8 +7,51 @@
         Find your perfect cup.
     </p>
 
+  
 </div>
 
+  <!-- filter category-buttons -->
+<div class="category-buttons">
+ 
+  <button
+    class="category-btn"
+    [class.active]="selectedCategory === 'All'"
+    (click)="filterCategory('All')">
+    All
+  </button>
+
+  <button
+    class="category-btn"
+    [class.active]="selectedCategory === 'Hot Coffee'"
+    (click)="filterCategory('Hot Coffee')">
+    ☕ Hot Coffee
+  </button>
+
+  <button
+    class="category-btn"
+    [class.active]="selectedCategory === 'Iced Coffee'"
+    (click)="filterCategory('Iced Coffee')">
+    🧊 Iced Coffee
+  </button>
+
+  <button
+    class="category-btn"
+    [class.active]="selectedCategory === 'Pastries'"
+    (click)="filterCategory('Pastries')">
+    🥐 Pastries
+  </button>
+
+  <button
+    class="category-btn"
+    [class.active]="selectedCategory === 'Desserts'"
+    (click)="filterCategory('Desserts')">
+    🍰 Desserts
+  </button>
+
+</div>
+
+
+<!-- the menu listing products -->
 <div class="menu-container">
 
     @for (coffee of productlist; track coffee.id) {

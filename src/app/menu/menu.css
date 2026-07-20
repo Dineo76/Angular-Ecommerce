@@ -125,6 +125,39 @@
     display: flex;
     gap: 12px;
     margin: 20px 18px 18px;
+
+}
+
+/* Category Buttons */
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px 0 40px;
+}
+
+.category-btn {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 30px;
+    background-color: #f3e8dd;
+    color: rgb(44, 29, 18);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    background-color: rgb(92, 57, 38);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background-color: rgb(44, 29, 18);
+    color: white;
 }
 
 /* Buttons for add */
