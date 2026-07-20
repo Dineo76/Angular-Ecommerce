@@ -1,4 +1,13 @@
-<h2 class="header">Our Coffee Menu</h2>
+<div class="menu-header">
+
+    <h2>Our Coffee Menu</h2>
+
+    <p>
+        Freshly brewed coffee crafted with passion.
+        Find your perfect cup.
+    </p>
+
+</div>
 
 <div class="menu-container">
 
@@ -35,19 +44,21 @@
 
             </div>
 
-            <button
-              class="cart-btn"
-              (click)="addCoffee(coffee)"
-            >
-              Add To Cart
-            </button>
+            <div class="button-group">
+  <button
+    class="cart-btn"
+    (click)="addCoffee(coffee)"
+  >
+    Add To Cart
+  </button>
 
-            <button
-              class="cart-btn remove"
-              (click)="removeCoffee(coffee.id)"
-            >
-              Remove
-            </button>
+  <button
+    class="cart-btn remove"
+    (click)="removeCoffee(coffee.id)"
+  >
+    Remove
+  </button>
+</div>
 
         </div>
 
