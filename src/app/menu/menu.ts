@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./menu.css']
 })
 export class Menu implements OnInit {
+[x: string]: any;
 
   productlist: Product[] = [];
   selectedCategory = 'All';

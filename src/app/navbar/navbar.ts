@@ -7,6 +7,7 @@ import { FavoriteService } from '../service/favorite.service';
 import { ProductService } from '../service/product.service';
 import { Product } from '../products/product.model';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'navbarApp',
@@ -21,6 +22,7 @@ export class Navbar {
   private productService = inject(ProductService);
   private cartService = inject(CartService);
   private favoriteService = inject(FavoriteService);
+  private authService = inject(AuthService);
 
   searchTerm = '';
   results: any[] = [];
@@ -49,6 +51,19 @@ export class Navbar {
   get wishlistCount() {
     return this.favoriteService.getCount();
   }
+
+  get isLoggedIn() {
+  return this.authService.isLoggedIn();
+}
+
+get currentUser() {
+  return this.authService.getCurrentUser();
+}
+
+get firstName() {
+  const user = this.authService.getCurrentUser();
+  return user ? user.fullName.split(' ')[0] : '';
+}
 
   onLiveSearch() {
   const term = this.searchTerm.toLowerCase().trim();
@@ -84,5 +99,14 @@ export class Navbar {
   this.results = [...productResults, ...orderResults];
 
  
+}
+logout() {
+
+  this.authService.logout();
+
+  alert('You have been logged out.');
+
+  this.router.navigate(['/']);
+
 }
 }

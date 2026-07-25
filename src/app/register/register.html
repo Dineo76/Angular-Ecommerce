@@ -1,0 +1,79 @@
+<div class="register-page">
+
+  <div class="register-card">
+
+    <h1>The Daily Grind</h1>
+    <p>Create your account and enjoy your favourite coffee.</p>
+
+    <form (ngSubmit)="register()">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input
+          type="text"
+          name="fullName"
+          [(ngModel)]="user.fullName"
+          placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="user.email"
+          placeholder="Enter your email">
+      </div>
+
+
+  <div class="form-group">
+  <label>Password</label>
+
+  <div class="password-field">
+
+    <input
+      [type]="showPassword ? 'text' : 'password'"
+      [(ngModel)]="user.password"
+      name="password"
+      placeholder="Create a password"
+      required
+    >
+
+    <span
+      class="eye-icon"
+      (click)="showPassword = !showPassword">
+
+      {{ showPassword ? '👁️' : '👁️‍🗨️' }}
+
+    </span>
+
+  </div>
+</div>
+
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          placeholder="Confirm your password">
+      </div>
+
+      <button type="submit">
+        Create Account
+      </button>
+
+    </form>
+
+    <p class="login-link">
+      Already have an account?
+
+      <a routerLink="/login">
+        Login here
+      </a>
+    </p>
+
+  </div>
+
+</div>

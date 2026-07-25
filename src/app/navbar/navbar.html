@@ -46,19 +46,52 @@
 
     </div>
 
-    <!-- Icons -->
-    <div class="nav-icons">
+    <!-- icons -->
 
-      <a routerLink="/wishlist" routerLinkActive="active">
-        ❤️ Wishlist ({{ wishlistCount }})
-      </a>
+  <div class="nav-icons">
 
-      <a routerLink="/cart" routerLinkActive="active">
-        🛒 Cart ({{ cartCount }})
-      </a>
+  <a routerLink="/wishlist" routerLinkActive="active">
+    ❤️ Wishlist <span class="badge">{{ wishlistCount }}</span>
+  </a>
 
-    </div>
+  <a routerLink="/cart" routerLinkActive="active">
+    🛒 Cart <span class="badge">{{ cartCount }}</span>
+  </a>
 
+ <!-- Show when NOT logged in -->
+<a
+  *ngIf="!isLoggedIn"
+  routerLink="/login"
+  routerLinkActive="active">
+
+  Login
+
+</a>
+
+<a
+  *ngIf="!isLoggedIn"
+  routerLink="/register"
+  routerLinkActive="active">
+
+  Register
+
+</a>
+
+<!-- Show when logged in -->
+  <span *ngIf="isLoggedIn" class="welcome">
+  Welcome, {{ firstName }} 
+</span>
+
+
+<a
+  *ngIf="isLoggedIn"
+  (click)="logout()">
+
+  Logout
+
+</a>
+
+</div>
   </div>
 
   <!-- BOTTOM ROW -->
@@ -78,14 +111,14 @@
     </li>
 
     <li>
-      <a routerLink="/orders" routerLinkActive="active">
-      Orders
+     <a routerLink="/about-us" routerLinkActive="active">
+     About Us
       </a>
     </li>
 
     <li>
-      <a routerLink="/about-us" routerLinkActive="active">
-      About Us
+      <a routerLink="/orders" routerLinkActive="active">
+       Orders
       </a>
     </li>
 
