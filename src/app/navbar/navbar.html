@@ -78,10 +78,18 @@
 </a>
 
 <!-- Show when logged in -->
-  <span *ngIf="isLoggedIn" class="welcome">
-  Welcome, {{ firstName }} 
+ <span *ngIf="isLoggedIn" class="welcome">
+  👋 Hi, {{ firstName }}
 </span>
 
+<a
+  *ngIf="isLoggedIn"
+  routerLink="/profile"
+  routerLinkActive="active">
+
+  Profile
+
+</a>
 
 <a
   *ngIf="isLoggedIn"
@@ -116,11 +124,11 @@
       </a>
     </li>
 
-    <li>
-      <a routerLink="/orders" routerLinkActive="active">
-       Orders
-      </a>
-    </li>
+   <li *ngIf="isLoggedIn">
+  <a routerLink="/orders" routerLinkActive="active">
+    Orders
+  </a>
+</li>
 
     <li>
       <a routerLink="/contacts" routerLinkActive="active">

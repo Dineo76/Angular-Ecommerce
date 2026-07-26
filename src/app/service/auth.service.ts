@@ -68,6 +68,45 @@ export class AuthService {
     );
   }
 
+ updateProfile(updatedUser: User): boolean {
+
+  const users = this.getUsers();
+
+  // Check if another user already has this email
+  const emailExists = users.find(
+    user =>
+      user.email === updatedUser.email &&
+      user.id !== updatedUser.id
+  );
+
+  if (emailExists) {
+    return false;
+  }
+
+  const index = users.findIndex(
+    user => user.id === updatedUser.id
+  );
+
+  if (index !== -1) {
+
+    users[index] = updatedUser;
+
+    localStorage.setItem(
+      this.USERS_KEY,
+      JSON.stringify(users)
+    );
+
+    localStorage.setItem(
+      this.CURRENT_USER_KEY,
+      JSON.stringify(updatedUser)
+    );
+
+  }
+
+  return true;
+
+}
+
   private getUsers(): User[] {
     return JSON.parse(
       localStorage.getItem(this.USERS_KEY) || '[]'

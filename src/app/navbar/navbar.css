@@ -307,20 +307,18 @@
     font-weight: bold;
 }
 
-.welcome{
 
-    color:white;
+.welcome {
 
-    font-weight:600;
+    color: white;
 
-    margin-right:10px;
+    font-weight: 600;
 
-    white-space:nowrap;
+    padding: 10px 18px;
 
-    font-size:15px;
+    border-radius: 30px;
+    display: flex;
 
-    display:flex;
-
-    align-items:center;
+    align-items: center;
 
 }

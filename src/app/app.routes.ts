@@ -8,6 +8,8 @@ import { Checkout } from './checkout/checkout';
 import { Wishlist } from './wishlist/wishlist';
 import { RegisterComponent } from './register/register';
 import {LoginComponent} from './login/login';
+import { authGuard } from './guard/auth-guard';
+import { Profile } from './profile/profile';
 
 export const routes: Routes = [
   { path: '', component: Hero },
@@ -19,6 +21,9 @@ export const routes: Routes = [
   { path: 'wishlist', component: Wishlist },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: Profile},
+
+  
 
 
 
@@ -28,7 +33,11 @@ export const routes: Routes = [
       import('./product-details/product-details')
         .then(m => m.ProductDetailsComponent)
   },
-    { path: 'checkout', component: Checkout },
+    {
+  path: 'checkout',
+  component: Checkout,
+  canActivate: [authGuard]
+},
 
     {
       path: 'success',
@@ -37,11 +46,17 @@ export const routes: Routes = [
           .then(m => m.Success)
     },
 
-    {
+{
   path: 'orders',
+  canActivate: [authGuard],
   loadComponent: () =>
     import('./orders/orders')
       .then(m => m.OrdersComponent)
+},
+
+ { path: 'profile',
+  component: Profile,
+  canActivate: [authGuard]
 },
 
 

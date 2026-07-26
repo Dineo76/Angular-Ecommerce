@@ -102,11 +102,18 @@ get firstName() {
 }
 logout() {
 
+   const confirmLogout = confirm(
+    'Are you sure you want to log out?'
+  );
+
+  if (!confirmLogout) {
+    return;
+  }
+
   this.authService.logout();
 
-  alert('You have been logged out.');
+  this.router.navigate(['/login']);
 
-  this.router.navigate(['/']);
 
 }
 }
