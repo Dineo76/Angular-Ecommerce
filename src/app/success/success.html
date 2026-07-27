@@ -1,23 +1,68 @@
 <div class="success-container">
 
-    <div class="success-card">
-  
-      <h1>🎉 Order Successful!</h1>
-  
-      <p>Order ID: <b>#{{ order?.id }}</b></p>
-  
-      <p>Total Paid: R {{ order?.total }}</p>
-  
-      <p>Date: {{ order?.date | date:'medium' }}</p>
-  
-      <div class="success-icon">✔</div>
-  
-      <button routerLink="/menu">
-        Continue Shopping
-      </button>
-  
+  <div class="success-card">
+
+    <div class="success-icon">
+      ✅
     </div>
-  <button routerLink="/orders">
-  View My Orders
-</button>
+
+    <h1>Order Confirmed!</h1>
+
+    <p class="subtitle">
+      Thank you for your order! Your coffee is being prepared.
+    </p>
+
+    <div class="order-details">
+
+      <div class="detail-row">
+        <span>Order Number</span>
+        <strong>#{{ order?.id }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Customer</span>
+        <strong>{{ order?.customer?.name }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Phone</span>
+        <strong>{{ order?.customer?.phone }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Delivery Address</span>
+        <strong>{{ order?.customer?.address }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Date</span>
+        <strong>{{ order?.date | date:'medium' }}</strong>
+      </div>
+
+      <div class="detail-row total">
+        <span>Total Paid</span>
+        <strong>R {{ order?.total.toFixed(2) }}</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Estimated Delivery</span>
+        <strong>30 - 45 Minutes</strong>
+      </div>
+
+    </div>
+
+    <div class="button-group">
+
+      <button routerLink="/orders" class="orders-btn">
+        📦 View My Orders
+      </button>
+
+      <button routerLink="/menu" class="menu-btn">
+        ☕ Continue Shopping
+      </button>
+
+    </div>
+
   </div>
+
+</div>

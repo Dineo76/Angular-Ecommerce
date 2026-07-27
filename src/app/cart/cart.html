@@ -27,16 +27,32 @@
 
             <p>Subtotal:R{{ (item.product.price * item.quantity).toFixed(2) }}</p>
 
-            <div class="qty-controls">
-              <button (click)="decrease(item.product.id)">-</button>
-              <span>{{ item.quantity }}</span>
-              <button (click)="increase(item.product.id)">+</button>
-            </div>
+          <div class="qty-controls">
+
+  <button
+    class="qty-btn"
+    (click)="decrease(item.product.id)">
+
+    −
+
+  </button>
+
+  <span class="qty">{{ item.quantity }}</span>
+
+  <button
+    class="qty-btn"
+    (click)="increase(item.product.id)">
+
+    +
+
+  </button>
+
+</div>
 
           </div>
 
           <button class="remove-btn" (click)="remove(item.product.id)">
-            Remove
+            🗑 Remove
           </button>
 
         </div>
@@ -51,11 +67,11 @@
     <div class="cart-actions">
 
       <button class="clear-btn" (click)="clear()">
-        Clear Cart
+     🧹 Clear Cart
       </button>
 
       <button routerLink="/checkout" class="checkout-btn">
-        Proceed to Checkout
+       💳 Proceed to Checkout
       </button>
 
     </div>

@@ -19,114 +19,227 @@ export interface Order {
 })
 export class CartService {
 
-  /* ================= CART ================= */
+  constructor() {
+    this.loadCart();
+  }
 
-  private cart: CartItem[] =
-    JSON.parse(localStorage.getItem('cart') || '[]');
+  /* ==========================================
+     USER STORAGE KEYS
+  ========================================== */
+
+  private getCurrentUser() {
+    return JSON.parse(localStorage.getItem('currentUser') || 'null');
+  }
+
+  private getCartKey(): string {
+
+    const user = this.getCurrentUser();
+
+    return user
+      ? `cart_${user.email}`
+      : 'cart_guest';
+
+  }
+
+  private getOrdersKey(): string {
+
+    const user = this.getCurrentUser();
+
+    return user
+      ? `orders_${user.email}`
+      : 'orders_guest';
+
+  }
+
+  /* ==========================================
+     CART
+  ========================================== */
+
+  private cart: CartItem[] = [];
+
+  private loadCart(): void {
+
+    this.cart = JSON.parse(
+      localStorage.getItem(this.getCartKey()) || '[]'
+    );
+
+  }
 
   private saveCart(): void {
-    localStorage.setItem('cart', JSON.stringify(this.cart));
+
+    localStorage.setItem(
+      this.getCartKey(),
+      JSON.stringify(this.cart)
+    );
+
   }
 
   getCart(): CartItem[] {
+
+    this.loadCart();
+
     return this.cart;
+
   }
 
   addToCart(product: Product): void {
+
+    this.loadCart();
 
     const existing = this.cart.find(
       item => item.product.id === product.id
     );
 
     if (existing) {
-      existing.quantity += 1;
+
+      existing.quantity++;
+
     } else {
-      this.cart.push({ product, quantity: 1 });
+
+      this.cart.push({
+        product,
+        quantity: 1
+      });
+
     }
 
     this.saveCart();
+
   }
 
   removeFromCart(productId: number): void {
+
+    this.loadCart();
+
     this.cart = this.cart.filter(
       item => item.product.id !== productId
     );
 
     this.saveCart();
+
   }
 
   increaseQty(productId: number): void {
-    const item = this.cart.find(i => i.product.id === productId);
+
+    this.loadCart();
+
+    const item = this.cart.find(
+      i => i.product.id === productId
+    );
 
     if (item) {
+
       item.quantity++;
+
       this.saveCart();
+
     }
+
   }
 
   decreaseQty(productId: number): void {
-    const item = this.cart.find(i => i.product.id === productId);
+
+    this.loadCart();
+
+    const item = this.cart.find(
+      i => i.product.id === productId
+    );
 
     if (!item) return;
 
     item.quantity--;
 
     if (item.quantity <= 0) {
+
       this.removeFromCart(productId);
+
     } else {
+
       this.saveCart();
+
     }
+
   }
 
   clearCart(): void {
+
     this.cart = [];
+
     this.saveCart();
+
   }
 
   getTotal(): number {
+
+    this.loadCart();
+
     return this.cart.reduce(
       (sum, item) => sum + item.product.price * item.quantity,
       0
     );
+
   }
 
   getCount(): number {
+
+    this.loadCart();
+
     return this.cart.reduce(
       (sum, item) => sum + item.quantity,
       0
     );
+
   }
 
-  /* ================= ORDERS ================= */
-
-  private ordersKey = 'coffeeOrders';
+  /* ==========================================
+     ORDERS
+  ========================================== */
 
   getOrders(): Order[] {
-    return JSON.parse(localStorage.getItem(this.ordersKey) || '[]');
+
+    return JSON.parse(
+      localStorage.getItem(this.getOrdersKey()) || '[]'
+    );
+
   }
 
   saveOrder(order: Order): void {
+
     const orders = this.getOrders();
+
     orders.push(order);
 
     localStorage.setItem(
-      this.ordersKey,
+      this.getOrdersKey(),
       JSON.stringify(orders)
     );
+
   }
 
-  createOrder(customer: any, items: CartItem[], total: number): Order {
+  createOrder(
+    customer: any,
+    items: CartItem[],
+    total: number
+  ): Order {
 
     const order: Order = {
+
       id: Date.now(),
+
       customer,
-      items,
+
+      items: [...items],
+
       total,
+
       date: new Date()
+
     };
 
     this.saveOrder(order);
 
     return order;
+
   }
+
 }

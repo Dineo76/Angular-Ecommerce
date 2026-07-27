@@ -1,91 +1,181 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../service/cart.service';
-import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './checkout.html',
-  })
-  
+  styleUrl: './checkout.css'
+})
 export class Checkout {
+
+  private router = inject(Router);
+
+  cartService = inject(CartService);
+
+  cartItems = this.cartService.getCart();
 
   customer = {
     name: '',
     phone: '',
     address: ''
   };
-  
-  private router = inject(Router);
-  
-  cartService = inject(CartService);
 
-  cartItems = this.cartService.getCart();
+  // Validation Errors
+  nameError = '';
+  phoneError = '';
+  addressError = '';
 
   get total() {
     return this.cartService.getTotal();
   }
 
-placeOrder() {
+  placeOrder() {
 
-  // 1. Validate form
-  if (!this.customer.name || !this.customer.phone || !this.customer.address) {
+    // Clear previous errors
+    this.nameError = '';
+    this.phoneError = '';
+    this.addressError = '';
 
-    Swal.fire({
-      icon: 'warning',
-      title: 'Almost there!',
-      text: 'Please fill in all your delivery details before placing your order.',
-      confirmButtonText: 'Okay'
-    });
+    const nameRegex = /^[A-Za-z\s]+$/;
 
-    return;
-  }
+    // ===========================
+    // NAME VALIDATION
+    // ===========================
 
-  // 2. Validate cart
-  if (this.cartItems.length === 0) {
+    if (!this.customer.name.trim()) {
 
-    Swal.fire({
-      icon: 'info',
-      title: 'Your cart is empty',
-      text: 'Please add a coffee before placing an order.',
-      confirmButtonText: 'Go to Menu'
-    }).then(() => {
-      this.router.navigate(['/menu']);
-    });
+      this.nameError = 'Full name is required.';
+      return;
 
-    return;
-  }
+    }
 
-  // 3. Create + SAVE order (localStorage happens inside service)
-  const order = this.cartService.createOrder(
-    this.customer,
-    this.cartItems,
-    this.total
-  );
+    if (!nameRegex.test(this.customer.name)) {
 
-  // 4. Clear cart
-  this.cartService.clearCart();
+      this.nameError =
+        'Full name can only contain letters and spaces.';
+      return;
 
-  // 5. Success alert
-  Swal.fire({
-    icon: 'success',
-    title: 'Order placed!',
-    text: 'Your coffee is being prepared ☕',
-    timer: 1500,
-    showConfirmButton: false
-  });
+    }
 
-  // 6. Navigate
-  setTimeout(() => {
-    this.router.navigate(['/success'], {
-      state: { order }
-    });
-  }, 1500);
+   // ===========================
+// PHONE VALIDATION
+// Format:
+// +27821234567
+// ===========================
+
+const phoneRegex = /^\+27[6-8][0-9]{8}$/;
+
+if (!this.customer.phone.trim()) {
+
+  this.phoneError = 'Phone number is required.';
+  return;
+
 }
-   
+
+if (!phoneRegex.test(this.customer.phone.trim())) {
+
+  this.phoneError =
+    'Use a valid South African number. Example: +27821234567';
+  return;
+
+}
+
+// ===========================
+// ADDRESS VALIDATION
+// Expected format:
+// House Number Street Name, Suburb, City
+// Example:
+// 12 Main Street, Tembisa, Johannesburg
+// ===========================
+
+const addressRegex =
+/^\d+\s+[A-Za-z\s]+,\s*[A-Za-z\s]+,\s*[A-Za-z\s]+$/;
+
+if (!this.customer.address.trim()) {
+
+  this.addressError = 'Delivery address is required.';
+  return;
+
+}
+
+if (!addressRegex.test(this.customer.address.trim())) {
+
+  this.addressError =
+    'Use this format: 12 Main Street, Tembisa, Johannesburg';
+  return;
+
+}
+
+    // ===========================
+    // CART VALIDATION
+    // ===========================
+
+    if (this.cartItems.length === 0) {
+
+      Swal.fire({
+        icon: 'info',
+        title: 'Your cart is empty',
+        text: 'Please add some coffee before checking out.',
+        confirmButtonText: 'Go to Menu'
+      }).then(() => {
+
+        this.router.navigate(['/menu']);
+
+      });
+
+      return;
+
+    }
+
+    // ===========================
+    // CREATE ORDER
+    // ===========================
+
+    const order = this.cartService.createOrder(
+
+      this.customer,
+      this.cartItems,
+      this.total
+
+    );
+
+    // ===========================
+    // CLEAR CART
+    // ===========================
+
+    this.cartService.clearCart();
+
+    // ===========================
+    // SUCCESS
+    // ===========================
+
+    Swal.fire({
+
+      icon: 'success',
+      title: 'Order Placed!',
+      text: 'Your coffee is being prepared ☕',
+      timer: 1800,
+      showConfirmButton: false
+
+    });
+
+    setTimeout(() => {
+
+      this.router.navigate(['/success'], {
+
+        state: { order }
+
+      });
+
+    }, 1800);
+
+  }
+
 }
