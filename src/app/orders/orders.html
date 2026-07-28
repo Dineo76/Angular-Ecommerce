@@ -1,44 +1,122 @@
-<div class="orders-container">
+<div class="orders-wrapper">
 
-  <div class="orders-header">
-    <h2>🧾 My Orders</h2>
+  <div class="orders-card">
 
-    <a routerLink="/menu" class="shop-btn">
-      + New Order
-    </a>
-  </div>
+    <div class="orders-header">
 
-  @if (orders.length === 0) {
-    <p class="empty">No orders yet. Start by ordering your favourite coffee ☕</p>
-  }
-
-  @for (order of orders; track order.id) {
-
-    <div class="order-card">
-
-      <div class="order-top">
-        <h3>Order #{{ order.id }}</h3>
-        <span>{{ order.date | date:'medium' }}</span>
+      <div>
+        <h2>☕ My Orders</h2>
+        <p>View all your recent coffee orders.</p>
       </div>
 
-      <p><strong>Name:</strong> {{ order.customer.name }}</p>
 
-      <div class="order-items">
-        @for (item of order.items; track item.product.id) {
-          <div class="item-row">
-            <span>{{ item.product.name }} x {{ item.quantity }}</span>
-            <span>  R{{ (item.product.price * item.quantity).toFixed(2) }}
-</span>
-          </div>
-        }
-      </div>
-
-      <div class="order-total">
-  Total: R{{ order.total.toFixed(2) }}
-      </div>
-
+@if (orders.length > 0) {
+  <a routerLink="/menu" class="shop-btn">
+    + Order Coffee
+  </a>
+}
     </div>
 
-  }
+    @if (orders.length === 0) {
+
+      <div class="empty-orders">
+
+        <div class="empty-icon">☕</div>
+
+        <h3>No Orders Yet</h3>
+
+        <p>
+          Looks like you haven't ordered any coffee yet.
+        </p>
+
+        <a routerLink="/menu" class="shop-btn">
+          Browse Menu
+        </a>
+
+      </div>
+
+    }
+
+    @for (order of orders; track order.id) {
+
+      <div class="order-card">
+
+        <div class="order-top">
+
+          <div>
+
+            <h3>Order #{{ order.id }}</h3>
+
+            <small>
+              {{ order.date | date:'medium' }}
+            </small>
+
+          </div>
+
+          <span class="status">
+            Preparing
+          </span>
+
+        </div>
+
+        <div class="customer-details">
+
+          <p>
+            <strong>👤 Customer:</strong>
+            {{ order.customer.name }}
+          </p>
+
+          <p>
+            <strong>📞 Phone:</strong>
+            {{ order.customer.phone }}
+          </p>
+
+          <p>
+            <strong>📍 Address:</strong>
+            {{ order.customer.address }}
+          </p>
+
+        </div>
+
+        <hr>
+
+        <div class="items">
+
+          @for (item of order.items; track item.product.id) {
+
+            <div class="item-row">
+
+              <span>
+                ☕ {{ item.product.name }}
+                × {{ item.quantity }}
+              </span>
+
+              <strong>
+                R{{ (item.product.price * item.quantity).toFixed(2) }}
+              </strong>
+
+            </div>
+
+          }
+
+        </div>
+
+        <hr>
+
+        <div class="order-total">
+
+          <span>Total</span>
+
+          <strong>
+            R{{ order.total.toFixed(2) }}
+          </strong>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
 
 </div>

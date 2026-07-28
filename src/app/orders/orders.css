@@ -1,81 +1,182 @@
-.orders-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+/* ==========================================
+   PAGE
+========================================== */
 
-    /* Layout */
-    background: #f7f3ef;
-    border-radius: 12px;
-
-    /* Better scrolling behavior */
-    max-height: 80vh;
-    overflow-y: auto;
+.orders-wrapper{
+    padding:40px 20px;
+    background:#f6f2ee;
+    min-height:100vh;
 }
 
-/* Scrollbar styling */
-.orders-container::-webkit-scrollbar {
-    width: 8px;
+.orders-card{
+    max-width:900px;
+    margin:auto;
 }
 
-.orders-container::-webkit-scrollbar-thumb {
-    background: #8b5e3c;
-    border-radius: 10px;
+/* ==========================================
+   HEADER
+========================================== */
+
+.orders-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
 }
 
-.orders-container::-webkit-scrollbar-track {
-    background: #eee;
+.orders-header h2{
+    color:#3b2519;
+    margin-bottom:6px;
 }
 
-/* Sticky header */
-.orders-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #3b2519;
-
-    position: sticky;
-    top: 0;
-    background: #f7f3ef;
-    padding: 12px 0;
-    z-index: 10;
-    border-bottom: 1px solid #e5d7cc;
+.orders-header p{
+    color:#777;
 }
 
-/* Order card */
-.order-card {
-    background: white;
-    padding: 18px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-
-    transition: 0.2s ease;
+.shop-btn{
+    background:#8B5E3C;
+    color:white;
+    padding:12px 22px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
 }
 
-.order-card:hover {
-    transform: translateY(-3px);
+.shop-btn:hover{
+    background:#6f472d;
 }
 
-.order-card h3 {
-    margin-bottom: 8px;
-    color: #3b2519;
+/* ==========================================
+   ORDER CARD
+========================================== */
+
+.order-card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.order-card p {
-    margin: 5px 0;
-    color: #555;
+.order-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
 }
 
-/* Items spacing improvement */
-.order-card .item {
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 0;
+.order-top h3{
+    color:#3b2519;
 }
 
-/* Optional total highlight */
-.order-total {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 18px;
-    color: #3b2519;
+.status{
+    background:#f8e8a6;
+    color:#6f472d;
+    padding:6px 15px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* ==========================================
+   CUSTOMER
+========================================== */
+
+.customer-details p{
+    margin:8px 0;
+    color:#555;
+}
+
+/* ==========================================
+   ITEMS
+========================================== */
+
+.items{
+    margin-top:20px;
+}
+
+.item-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+.item-row:last-child{
+    border-bottom:none;
+}
+
+/* ==========================================
+   TOTAL
+========================================== */
+
+.order-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+    background:#f7f3ef;
+    padding:15px;
+    border-radius:10px;
+    font-size:18px;
+    color:#3b2519;
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty-orders{
+    text-align:center;
+    background:white;
+    padding:60px 30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.empty-icon{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.empty-orders h3{
+    color:#3b2519;
+}
+
+.empty-orders p{
+    color:#777;
+    margin:15px 0 25px;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.orders-header{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+}
+
+.order-top{
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-start;
+}
+
+.item-row,
+.order-total{
+    flex-direction:column;
+    gap:8px;
+    align-items:flex-start;
+}
+
+.shop-btn{
+    width:100%;
+    text-align:center;
+}
+
 }
