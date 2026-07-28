@@ -1,39 +1,93 @@
 <div class="product-page" *ngIf="product">
 
+  <!-- IMAGE -->
   <div class="product-image">
-    <img [src]="product.image" [alt]="product.name">
+
+    <img
+      [src]="product.image"
+      [alt]="product.name">
+
+  </div>
+
+  <!-- DETAILS -->
+  <div class="product-page" *ngIf="product">
+
+  <a
+    routerLink="/menu"
+    class="back-link">
+
+    ← Back to Menu
+
+  </a>
+
+  <div class="product-image">
+
+    <img
+      [src]="product.image"
+      [alt]="product.name">
+
   </div>
 
   <div class="product-info">
 
-    <a routerLink="/menu" class="back-link">
-      ← Back to Menu
-    </a>
+    <span class="badge">
+      ☕ Signature Blend
+    </span>
 
     <h1>{{ product.name }}</h1>
+
 
     <p class="description">
       {{ product.description }}
     </p>
 
+    <div class="product-extra">
+
+      <p><strong>Strength:</strong> ☕☕☕</p>
+
+      <p><strong>Category:</strong> Coffee</p>
+
+      <p><strong>Ingredients:</strong></p>
+
+      <ul>
+        <li>Fresh Espresso</li>
+        <li>Premium Coffee Beans</li>
+        <li>Steamed Milk</li>
+        <li>Natural Flavours</li>
+      </ul>
+
+    </div>
+
     <h2 class="price">
-      R {{ product.price }}
+      R{{ product.price.toFixed(2) }}
     </h2>
 
     <div class="product-actions">
 
-      <button class="add-btn" (click)="addToCart()">
-        Add To Cart
+      <button
+        class="add-btn"
+        (click)="addToCart()">
+
+        🛒 Add to Cart
+
       </button>
 
-      <button class="wishlist-btn" (click)="toggleFavorite()">
-        {{ isFavorite() ? '❤️ Remove from Wishlist' : '♡ Add to Wishlist' }}
+      <button
+        class="wishlist-btn"
+        (click)="toggleFavorite()">
+
+        {{ isFavorite() ? '❤️ Remove from Wishlist' : '🤍 Add to Wishlist' }}
+
       </button>
 
     </div>
 
-    <p class="added-message" *ngIf="addedMessage">
-      Added to cart ✓
+    <p
+      class="added-message"
+      *ngIf="addedMessage">
+
+      ✔ Added to cart successfully!
+
     </p>
 
   </div>
