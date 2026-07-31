@@ -2,7 +2,11 @@ export interface Product {
   id: number;
   name: string;
   price: number;
-  image?: string;
-  description?: string;
-  category?: string;
+  description: string;
+  image: string;
+
+  category: string;
+  size: string;
+  ingredients: string[];
+  calories: number;
 }

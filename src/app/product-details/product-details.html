@@ -30,9 +30,37 @@
 
   <div class="product-info">
 
-    <span class="badge">
-      ☕ Signature Blend
-    </span>
+    @if (product.category === 'Hot Coffee') {
+
+      <span class="badge">
+        ☕ Signature Coffee
+      </span>
+    
+    }
+    
+    @if (product.category === 'Iced Coffee') {
+    
+      <span class="badge">
+        🧊 Ice Cold Favourite
+      </span>
+    
+    }
+    
+    @if (product.category === 'Pastries') {
+    
+      <span class="badge">
+        🥐 Freshly Baked
+      </span>
+    
+    }
+    
+    @if (product.category === 'Desserts') {
+    
+      <span class="badge">
+        🍰 Chef's Dessert
+      </span>
+    
+    }
 
     <h1>{{ product.name }}</h1>
 
@@ -41,22 +69,34 @@
       {{ product.description }}
     </p>
 
-    <div class="product-extra">
-
-      <p><strong>Strength:</strong> ☕☕☕</p>
-
-      <p><strong>Category:</strong> Coffee</p>
-
-      <p><strong>Ingredients:</strong></p>
-
-      <ul>
-        <li>Fresh Espresso</li>
-        <li>Premium Coffee Beans</li>
-        <li>Steamed Milk</li>
-        <li>Natural Flavours</li>
+    <p class="description">
+      {{ product.description }}
+    </p>
+    
+    <div class="product-specs">
+    
+      <p>
+        <strong>Size:</strong>
+        {{ product.size }}
+      </p>
+    
+      <p>
+        <strong>Calories:</strong>
+        {{ product.calories }} kcal
+      </p>
+    
+      <p>
+        <strong>Ingredients:</strong>
+      </p>
+    
+      <ul class="ingredients-list">
+        <li *ngFor="let ingredient of product.ingredients">
+          {{ ingredient }}
+        </li>
       </ul>
-
+    
     </div>
+
 
     <h2 class="price">
       R{{ product.price.toFixed(2) }}
